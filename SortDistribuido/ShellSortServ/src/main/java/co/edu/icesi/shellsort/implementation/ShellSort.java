@@ -3,17 +3,17 @@ package co.edu.icesi.shellsort.implementation;
 import java.util.ArrayList;
 import org.osoa.sca.annotations.*;
 
-import co.edu.icesi.shellsort.interfaces.sort;
+import co.edu.icesi.shellsort.interfaces.distSort;
 
 
-public class ShellSort implements sort<String>{
+public class ShellSort implements distSort<String>{
 	
 	public ShellSort() {
 		System.out.println("Shell Sort Server Created!");
 	}
 
 	
-	public ArrayList<String> sort(ArrayList<String> arr) {
+	public ArrayList<String> distSort(ArrayList<String> arr) {
 		 int n = arr.size(); 
 		  
 	        // Start with a big gap, then reduce the gap 

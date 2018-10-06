@@ -4,6 +4,6 @@ import java.util.ArrayList;
 import org.osoa.sca.annotations.*;
 
 @Service
-public interface sort<E> {	
-	public ArrayList<E> sort(ArrayList<E> arr);
+public interface distSort<E> {	
+	public ArrayList<E> distSort(ArrayList<E> arr);
 }
