@@ -4,14 +4,14 @@
   targetNamespace="http://frascati.ow2.org/helloworld-rmi"
   name="ShellSortServer">
 
-  <component name="server">
+  <component name="server" requires="frascati-debug">
  
     <service name="s">
-      <interface.java interface="co.edu.icesi.shellsort.interfaces.DistSort"/>
       <frascati:binding.rmi host="localhost" serviceName="rmiservice" port="1099"/>
+      <interface.java interface="co.edu.icesi.arqui.interfaces.DistSort"/>
     </service>
  
-    <implementation.java class="co.edu.icesi.shellsort.implementation.ShellSort" />
+    <implementation.java class="co.edu.icesi.arqui.implementation.ShellSort" />
  
   </component>
 

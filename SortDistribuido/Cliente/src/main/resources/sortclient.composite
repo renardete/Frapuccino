@@ -14,12 +14,12 @@
       <interface.java interface="java.lang.Runnable" />
     </service>
 
-    <reference name="distSort">
-      <interface.java interface="co.edu.icesi.cliente.interfaces.DistSort"/>	  
+    <reference name="distSort">      	  
       <frascati:binding.rmi host="localhost" serviceName="rmiservice" port="1099"/>
+
     </reference>
 
-    <implementation.java class="co.edu.icesi.cliente.implementation.ClienteSort" />
+    <implementation.java class="co.edu.icesi.arqui.implementation.ClienteSort" />
 
   </component>
 
