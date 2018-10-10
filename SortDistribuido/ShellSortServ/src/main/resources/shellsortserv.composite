@@ -7,6 +7,7 @@
   <component name="server">
  
     <service name="s">
+      <interface.java interface="co.edu.icesi.shellsort.interfaces.DistSort"/>
       <frascati:binding.rmi host="localhost" serviceName="rmiservice" port="1099"/>
     </service>
  

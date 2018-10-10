@@ -15,7 +15,7 @@
     </service>
 
     <reference name="distSort">
-	<interface.java interface="co.edu.icesi.cliente.interfaces.distSort"/>
+      <interface.java interface="co.edu.icesi.cliente.interfaces.DistSort"/>	  
       <frascati:binding.rmi host="localhost" serviceName="rmiservice" port="1099"/>
     </reference>
 

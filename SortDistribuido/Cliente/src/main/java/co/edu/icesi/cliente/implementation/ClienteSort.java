@@ -7,23 +7,18 @@ import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
+
+
 
 import org.osoa.sca.annotations.Init;
 import org.osoa.sca.annotations.Reference;
 
-import co.edu.icesi.cliente.interfaces.distSort;
+import co.edu.icesi.cliente.interfaces.DistSort;
 
 public class ClienteSort implements Runnable {
-
 	
-	private distSort<String> s;
-
-	@Reference
-	public final void setPrintService(distSort<String> service) {
-		this.s = service;
-	}
+	@Reference(name="distSort")
+	private DistSort s;
 
 	public ClienteSort() {
 		System.out.println("Cliente inicializado!");
@@ -34,12 +29,12 @@ public class ClienteSort implements Runnable {
 		System.out.println("CLIENT initialized");
 	}
 
-	private ArrayList<String> readFile(String path) {
-		ArrayList<String> arr = null;
+	private String[] readFile(String path) {
+		String[] arr = null;
 		try {
 			BufferedReader inFile = new BufferedReader(new FileReader(path));
 			String ln = inFile.readLine();
-			arr = new ArrayList<String>(Arrays.asList(ln.split(";")));
+			arr = ln.split(";");
 
 		} catch (Exception e) {
 			System.out.println("Ocurrio un error en la lectura del archivo");
@@ -49,19 +44,23 @@ public class ClienteSort implements Runnable {
 	}
 
 	public final void run() {
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Funciona hombre");
 		BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
 		try {
-			String path = in.readLine();
-			ArrayList<String> arr = readFile(path);
-			ArrayList<String> orderArr = s.distSort(arr);
-			for (int i = 0; i < 10; i++) {
-				out.write(orderArr.get(i) + "\n");
-			}
+			//for (long s = 200000; s <= 1000000; s += 200000) {
+				String[] arr = readFile("Datos/datos_10.txt");
+				s.distSort(arr);
+				/*
+				ArrayList<String> orderArr = 
+				for (int i = 0; i < 10; i++) {
+					out.write(orderArr.get(i) + "\n");
+				}	
+				*/			
+			//}
 			out.flush();
 			out.close();
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e);
 		}
 
 	}
