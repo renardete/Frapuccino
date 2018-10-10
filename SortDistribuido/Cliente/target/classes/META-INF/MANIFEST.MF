@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: swarch
 Build-Jdk: 1.8.0_171
 Created-By: Maven Integration for Eclipse
 
+=======
+Manifest-Version: 1.0
+Built-By: swarch
+Build-Jdk: 1.8.0_171
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> 49180e25eb2737b4e62654e66df5e84afb1c5b0b
