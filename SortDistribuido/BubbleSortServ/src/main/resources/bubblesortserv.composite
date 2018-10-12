@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<composite xmlns="http://www.osoa.org/xmlns/sca/1.0"
+  xmlns:frascati="http://frascati.ow2.org/xmlns/sca/1.1"
+  targetNamespace="http://frascati.ow2.org/helloworld-rmi"
+  name="BubbleSortServer">
+
+  <component name="server" requires="frascati-debug">
+ 
+    <service name="s">
+      <frascati:binding.rmi host="localhost" serviceName="rmiservice" port="1099"/>
+      <interface.java interface="co.edu.icesi.arqui.interfaces.DistSort"/>
+    </service>
+ 
+    <implementation.java class="co.edu.icesi.arqui.implementation.BubbleSort" />
+ 
+  </component>
+
+</composite>
+
+
