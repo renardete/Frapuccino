@@ -3,12 +3,14 @@ package co.edu.icesi.arqui.implementation;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-
-
+import java.util.Random;
 
 import org.osoa.sca.annotations.Init;
 import org.osoa.sca.annotations.Reference;
@@ -42,18 +44,75 @@ public class ClienteSort implements Runnable {
 		}
 		return arr;
 	}
+	
+	//Por parametro se pasa el número de datos
+		public void generarDatos(int numeroDatos) throws IOException {
+
+			long t1 = System.currentTimeMillis();
+
+			// Incluye todas las mayúsculas, minúsculas, y los carácteres [ \ ] _ ` ^
+			int leftLimit = 65; // ASCII letra A
+			int rightLimit = 122; // ASCII lera z
+			int targetStringLength = 60; // La longitud de las palabras va a ser 60
+
+			int[] numeros = { 1, 2, 3, 4, 5, 7, 8, 9, 0 };
+
+			Random random = new Random();
+			StringBuilder buffer = new StringBuilder(targetStringLength);
+			// Si el archivo no existe se crea, si no se sobre escribe
+			
+			File archivo = new File("Datos/datos_10.txt");
+			BufferedWriter bw = new BufferedWriter(new FileWriter(archivo));
+			for (int j = 0; j < numeroDatos; j++) {
+
+				for (int i = 0; i < targetStringLength; i++) {
+					// Random para escribir una letra o un numero
+					int x = random.nextInt(2);
+					if (x == 0) {
+						int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
+						buffer.append((char) randomLimitedInt);
+					} else {
+						int pos = random.nextInt(9);
+						buffer.append(numeros[pos] + "");
+					}
+
+				}
+				String generatedString = buffer.toString();
+
+				// Reseteo el string builder para que no concatene resultados anteriores
+				buffer = new StringBuilder(targetStringLength);
+
+				// Escribo en el archivo
+
+				if (j == (numeroDatos-1))
+					bw.write(generatedString);
+				else
+					bw.write(generatedString + ";");
+
+			}
+			bw.flush();
+			bw.close();
+
+			long t2 = System.currentTimeMillis();
+			//Mirando cuándo se demora en generar, para genera 1000000 de datos se genera 2 segundos
+			System.out.println("Ha tardado " + (t2 - t1) + "milisegundos");
+		}
 
 	public final void run() {
 		
 		BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
 		try {
 			//for (long s = 200000; s <= 1000000; s += 200000) {
-				String[] arr = readFile("Datos/datos_10.txt");
-				String[] orderArr = s.sort(arr);
+			generarDatos(10);
 			
-				for (int i = 0; i < 10; i++) {
-					out.write(orderArr[i] + "\n");
-				}	
+				String[] arr = readFile("Datos/datos_10.txt");
+				long t1 = System.currentTimeMillis();
+				String[] orderArr = s.sort(arr);
+				long t2 = System.currentTimeMillis();
+				System.out.println("Ha tardado " + (t2 - t1) + "milisegundos");
+//				for (int i = 0; i < 200000; i++) {
+//					out.write(orderArr[i] + "\n");
+//				}	
 							
 			//}
 			out.flush();
