@@ -99,24 +99,27 @@ public class ClienteSort implements Runnable {
 		}
 
 	public final void run() {
-		
-		BufferedWriter out = new BufferedWriter(new OutputStreamWriter(System.out));
+		String resultFile = "Datos/resultados.txt";		
+				
 		try {
-			//for (long s = 200000; s <= 1000000; s += 200000) {
-			generarDatos(10);
 			
-				String[] arr = readFile("Datos/datos_10.txt");
+			for (long tam = 200000; tam <= 1000000; tam += 200000) {
+				BufferedWriter outFile = new BufferedWriter(new FileWriter(resultFile, true));			
+				String[] arr = readFile("Datos/datos_"+tam+".txt");
+				System.out.println("Procesando arreglo: "+arr.length);
+				
 				long t1 = System.currentTimeMillis();
+				
 				String[] orderArr = s.sort(arr);
+				
 				long t2 = System.currentTimeMillis();
+				
+				//Guarda el tiempo de ordenamiento en el archivo.
 				System.out.println("Ha tardado " + (t2 - t1) + "milisegundos");
-//				for (int i = 0; i < 200000; i++) {
-//					out.write(orderArr[i] + "\n");
-//				}	
-							
-			//}
-			out.flush();
-			out.close();
+				outFile.append(tam+","+(t2 - t1)+"\n");				
+				outFile.close();		
+			}			
+			
 		} catch (Exception e) {
 			System.out.println(e);
 		}

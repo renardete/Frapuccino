@@ -1,0 +1,671 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (safepoint.cpp:247), pid=15986, tid=140527888320256
+#  guarantee(PageArmed == 0) failed: invariant
+#
+# JRE version: 6.0_23-b05
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (19.0-b09 mixed mode linux-amd64 compressed oops)
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fcf3806d000):  VMThread [stack: 0x00007fcf32cd5000,0x00007fcf32dd5000] [id=15996]
+
+Stack: [0x00007fcf32cd5000,0x00007fcf32dd5000],  sp=0x00007fcf32dd3ae0,  free space=1018k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x769ca5]
+V  [libjvm.so+0x315c16]
+V  [libjvm.so+0x691926]
+V  [libjvm.so+0x777fd7]
+V  [libjvm.so+0x777aee]
+V  [libjvm.so+0x623e1f]
+
+VM_Operation (0x00007fcf3122ea60): RevokeBias, mode: safepoint, requested by thread 0x00007fced8007000
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007fced8007000 JavaThread "RMI TCP Connection(idle)" daemon [_thread_blocked, id=17695, stack(0x00007fcf3112f000,0x00007fcf31230000)]
+  0x00007fced8005800 JavaThread "RMI TCP Connection(idle)" daemon [_thread_blocked, id=17694, stack(0x00007fcf31230000,0x00007fcf31331000)]
+  0x00007fced8004800 JavaThread "RMI TCP Connection(idle)" daemon [_thread_blocked, id=17693, stack(0x00007fcf31735000,0x00007fcf31836000)]
+  0x00007fced8003000 JavaThread "RMI TCP Connection(6)-192.168.161.24" daemon [_thread_in_Java, id=17007, stack(0x00007fcf31331000,0x00007fcf31432000)]
+  0x00007fced8001000 JavaThread "RMI TCP Connection(2)-192.168.161.24" daemon [_thread_in_vm, id=16048, stack(0x00007fcf31432000,0x00007fcf31533000)]
+  0x00007fced4006800 JavaThread "RMI Scheduler(0)" daemon [_thread_blocked, id=16045, stack(0x00007fcf31533000,0x00007fcf31634000)]
+  0x00007fcf38007800 JavaThread "DestroyJavaVM" [_thread_blocked, id=15987, stack(0x00007fcf3cbe8000,0x00007fcf3cce8000)]
+  0x00007fcf39354800 JavaThread "GC Daemon" daemon [_thread_blocked, id=16010, stack(0x00007fcf31836000,0x00007fcf31937000)]
+  0x00007fcf39354000 JavaThread "RMI Reaper" [_thread_blocked, id=16009, stack(0x00007fcf31937000,0x00007fcf31a38000)]
+  0x00007fcf39358000 JavaThread "RMI TCP Accept-0" daemon [_thread_blocked, id=16008, stack(0x00007fcf31a38000,0x00007fcf31b39000)]
+  0x00007fcf39353000 JavaThread "Thread-1" [_thread_in_native, id=16007, stack(0x00007fcf31b39000,0x00007fcf31c3a000)]
+  0x00007fcf39058000 JavaThread "RMI TCP Accept-1099" daemon [_thread_in_native, id=16006, stack(0x00007fcf31c3a000,0x00007fcf31d3b000)]
+  0x00007fcf38099800 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=16002, stack(0x00007fcf326ce000,0x00007fcf327cf000)]
+  0x00007fcf38097000 JavaThread "CompilerThread1" daemon [_thread_blocked, id=16001, stack(0x00007fcf327d0000,0x00007fcf328d0000)]
+  0x00007fcf38094000 JavaThread "CompilerThread0" daemon [_thread_blocked, id=16000, stack(0x00007fcf328d1000,0x00007fcf329d1000)]
+  0x00007fcf38092000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=15999, stack(0x00007fcf329d1000,0x00007fcf32ad2000)]
+  0x00007fcf38073800 JavaThread "Finalizer" daemon [_thread_blocked, id=15998, stack(0x00007fcf32ad2000,0x00007fcf32bd3000)]
+  0x00007fcf38071800 JavaThread "Reference Handler" daemon [_thread_blocked, id=15997, stack(0x00007fcf32bd3000,0x00007fcf32cd4000)]
+
+Other Threads:
+=>0x00007fcf3806d000 VMThread [stack: 0x00007fcf32cd5000,0x00007fcf32dd5000] [id=15996]
+  0x00007fcf380ac000 WatcherThread [stack: 0x00007fcf325ce000,0x00007fcf326ce000] [id=16003]
+
+VM state:synchronizing (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007fcf38004d20] Safepoint_lock - owner thread: 0x00007fcf3806d000
+[0x00007fcf38004da0] Threads_lock - owner thread: 0x00007fcf3806d000
+
+Heap
+ PSYoungGen      total 192896K, used 133612K [0x0000000798ab0000, 0x00000007a9270000, 0x0000000800000000)
+  eden space 138048K, 60% used [0x0000000798ab0000,0x000000079dcaf1c0,0x00000007a1180000)
+  from space 54848K, 90% used [0x00000007a4fe0000,0x00000007a805be90,0x00000007a8570000)
+  to   space 63872K, 0% used [0x00000007a1180000,0x00000007a1180000,0x00000007a4fe0000)
+ PSOldGen        total 211584K, used 78904K [0x00000006ca000000, 0x00000006d6ea0000, 0x0000000798ab0000)
+  object space 211584K, 37% used [0x00000006ca000000,0x00000006ced0e338,0x00000006d6ea0000)
+ PSPermGen       total 49408K, used 25257K [0x00000006c4e00000, 0x00000006c7e40000, 0x00000006ca000000)
+  object space 49408K, 51% used [0x00000006c4e00000,0x00000006c66aa620,0x00000006c7e40000)
+
+Dynamic libraries:
+40000000-40009000 r-xp 00000000 08:05 2057624                            /usr/java/jdk1.6.0_23/bin/java
+40108000-4010a000 rwxp 00008000 08:05 2057624                            /usr/java/jdk1.6.0_23/bin/java
+41111000-41132000 rwxp 00000000 00:00 0                                  [heap]
+6c4e00000-6c7e40000 rwxp 00000000 00:00 0 
+6c7e40000-6ca000000 rwxp 00000000 00:00 0 
+6ca000000-6d6ea0000 rwxp 00000000 00:00 0 
+6d6ea0000-798ab0000 rwxp 00000000 00:00 0 
+798ab0000-7a9270000 rwxp 00000000 00:00 0 
+7a9270000-800000000 rwxp 00000000 00:00 0 
+7fceb8000000-7fceb8021000 rwxp 00000000 00:00 0 
+7fceb8021000-7fcebc000000 ---p 00000000 00:00 0 
+7fcec0000000-7fcec0021000 rwxp 00000000 00:00 0 
+7fcec0021000-7fcec4000000 ---p 00000000 00:00 0 
+7fcec4000000-7fcec4021000 rwxp 00000000 00:00 0 
+7fcec4021000-7fcec8000000 ---p 00000000 00:00 0 
+7fcec8000000-7fcec8021000 rwxp 00000000 00:00 0 
+7fcec8021000-7fcecc000000 ---p 00000000 00:00 0 
+7fcecc000000-7fcecc021000 rwxp 00000000 00:00 0 
+7fcecc021000-7fced0000000 ---p 00000000 00:00 0 
+7fced0000000-7fced0021000 rwxp 00000000 00:00 0 
+7fced0021000-7fced4000000 ---p 00000000 00:00 0 
+7fced4000000-7fced4021000 rwxp 00000000 00:00 0 
+7fced4021000-7fced8000000 ---p 00000000 00:00 0 
+7fced8000000-7fced8021000 rwxp 00000000 00:00 0 
+7fced8021000-7fcedc000000 ---p 00000000 00:00 0 
+7fcedc000000-7fcedc021000 rwxp 00000000 00:00 0 
+7fcedc021000-7fcee0000000 ---p 00000000 00:00 0 
+7fcee0000000-7fcee0021000 rwxp 00000000 00:00 0 
+7fcee0021000-7fcee4000000 ---p 00000000 00:00 0 
+7fcee4000000-7fcee4021000 rwxp 00000000 00:00 0 
+7fcee4021000-7fcee8000000 ---p 00000000 00:00 0 
+7fcee8000000-7fcee8021000 rwxp 00000000 00:00 0 
+7fcee8021000-7fceec000000 ---p 00000000 00:00 0 
+7fceec000000-7fceec021000 rwxp 00000000 00:00 0 
+7fceec021000-7fcef0000000 ---p 00000000 00:00 0 
+7fcef0000000-7fcef261a000 rwxp 00000000 00:00 0 
+7fcef261a000-7fcef4000000 ---p 00000000 00:00 0 
+7fcef4000000-7fcef5554000 rwxp 00000000 00:00 0 
+7fcef5554000-7fcef8000000 ---p 00000000 00:00 0 
+7fcef8000000-7fcef8021000 rwxp 00000000 00:00 0 
+7fcef8021000-7fcefc000000 ---p 00000000 00:00 0 
+7fcefdad7000-7fcf04000000 r-xp 00000000 08:05 1510522                    /usr/lib/locale/locale-archive
+7fcf04000000-7fcf04021000 rwxp 00000000 00:00 0 
+7fcf04021000-7fcf08000000 ---p 00000000 00:00 0 
+7fcf08000000-7fcf08021000 rwxp 00000000 00:00 0 
+7fcf08021000-7fcf0c000000 ---p 00000000 00:00 0 
+7fcf0c000000-7fcf0c021000 rwxp 00000000 00:00 0 
+7fcf0c021000-7fcf10000000 ---p 00000000 00:00 0 
+7fcf10000000-7fcf10021000 rwxp 00000000 00:00 0 
+7fcf10021000-7fcf14000000 ---p 00000000 00:00 0 
+7fcf14000000-7fcf14021000 rwxp 00000000 00:00 0 
+7fcf14021000-7fcf18000000 ---p 00000000 00:00 0 
+7fcf18000000-7fcf18021000 rwxp 00000000 00:00 0 
+7fcf18021000-7fcf1c000000 ---p 00000000 00:00 0 
+7fcf1c000000-7fcf1c021000 rwxp 00000000 00:00 0 
+7fcf1c021000-7fcf20000000 ---p 00000000 00:00 0 
+7fcf20000000-7fcf20021000 rwxp 00000000 00:00 0 
+7fcf20021000-7fcf24000000 ---p 00000000 00:00 0 
+7fcf24000000-7fcf24021000 rwxp 00000000 00:00 0 
+7fcf24021000-7fcf28000000 ---p 00000000 00:00 0 
+7fcf28000000-7fcf28021000 rwxp 00000000 00:00 0 
+7fcf28021000-7fcf2c000000 ---p 00000000 00:00 0 
+7fcf2c000000-7fcf2c021000 rwxp 00000000 00:00 0 
+7fcf2c021000-7fcf30000000 ---p 00000000 00:00 0 
+7fcf3112f000-7fcf31132000 ---p 00000000 00:00 0 
+7fcf31132000-7fcf31230000 rwxp 00000000 00:00 0 
+7fcf31230000-7fcf31233000 ---p 00000000 00:00 0 
+7fcf31233000-7fcf31331000 rwxp 00000000 00:00 0 
+7fcf31331000-7fcf31334000 ---p 00000000 00:00 0 
+7fcf31334000-7fcf31432000 rwxp 00000000 00:00 0 
+7fcf31432000-7fcf31435000 ---p 00000000 00:00 0 
+7fcf31435000-7fcf31533000 rwxp 00000000 00:00 0 
+7fcf31533000-7fcf31536000 ---p 00000000 00:00 0 
+7fcf31536000-7fcf31634000 rwxp 00000000 00:00 0 
+7fcf31634000-7fcf31635000 r-xp 00000000 08:05 2066118                    /usr/java/jdk1.6.0_23/jre/lib/amd64/librmi.so
+7fcf31635000-7fcf31734000 ---p 00001000 08:05 2066118                    /usr/java/jdk1.6.0_23/jre/lib/amd64/librmi.so
+7fcf31734000-7fcf31735000 rwxp 00000000 08:05 2066118                    /usr/java/jdk1.6.0_23/jre/lib/amd64/librmi.so
+7fcf31735000-7fcf31738000 ---p 00000000 00:00 0 
+7fcf31738000-7fcf31836000 rwxp 00000000 00:00 0 
+7fcf31836000-7fcf31839000 ---p 00000000 00:00 0 
+7fcf31839000-7fcf31937000 rwxp 00000000 00:00 0 
+7fcf31937000-7fcf3193a000 ---p 00000000 00:00 0 
+7fcf3193a000-7fcf31a38000 rwxp 00000000 00:00 0 
+7fcf31a38000-7fcf31a3b000 ---p 00000000 00:00 0 
+7fcf31a3b000-7fcf31b39000 rwxp 00000000 00:00 0 
+7fcf31b39000-7fcf31b3c000 ---p 00000000 00:00 0 
+7fcf31b3c000-7fcf31c3a000 rwxp 00000000 00:00 0 
+7fcf31c3a000-7fcf31c3d000 ---p 00000000 00:00 0 
+7fcf31c3d000-7fcf31d3b000 rwxp 00000000 00:00 0 
+7fcf31d3b000-7fcf31d4e000 r-xp 00000000 08:05 2066114                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libnet.so
+7fcf31d4e000-7fcf31e4f000 ---p 00013000 08:05 2066114                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libnet.so
+7fcf31e4f000-7fcf31e52000 rwxp 00014000 08:05 2066114                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libnet.so
+7fcf31e7e000-7fcf31e7f000 r-xs 00000000 08:03 5611631                    /home/swarch/Escritorio/Frapuccino/SortDistribuido/BubbleSortServ/BubbleSortServ.jar
+7fcf31e7f000-7fcf31e85000 r-xp 00000000 08:05 2066110                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libmanagement.so
+7fcf31e85000-7fcf31f84000 ---p 00006000 08:05 2066110                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libmanagement.so
+7fcf31f84000-7fcf31f86000 rwxp 00005000 08:05 2066110                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libmanagement.so
+7fcf31f86000-7fcf31f87000 r-xs 0000c000 08:05 1722949                    /usr/local/share/applications/frascati/lib/spring-asm-3.0.4.RELEASE.jar
+7fcf31f87000-7fcf31f89000 r-xs 00003000 08:05 1723117                    /usr/local/share/applications/frascati/lib/slf4j-api-1.5.0.jar
+7fcf31f89000-7fcf31f8a000 r-xs 00003000 08:05 1722978                    /usr/local/share/applications/frascati/lib/task-framework-2.3.1.jar
+7fcf31f8a000-7fcf31f8b000 r-xs 00001000 08:05 1722867                    /usr/local/share/applications/frascati/lib/jnaerator-rococoa-runtime-0.9.4.jar
+7fcf31f8b000-7fcf31f8e000 r-xs 00012000 08:05 1723055                    /usr/local/share/applications/frascati/lib/jndi-server-5.5.0.jar
+7fcf31f8e000-7fcf31f90000 r-xs 0000f000 08:05 1722921                    /usr/local/share/applications/frascati/lib/frascati-component-factory-1.4.jar
+7fcf31f90000-7fcf31f92000 r-xs 00002000 08:05 1722945                    /usr/local/share/applications/frascati/lib/frascati-property-jaxb-1.4.jar
+7fcf31f92000-7fcf31f94000 r-xs 00002000 08:05 1723100                    /usr/local/share/applications/frascati/lib/java2upnp-0.1.jar
+7fcf31f94000-7fcf31f95000 r-xs 00000000 08:05 1722937                    /usr/local/share/applications/frascati/lib/frascati-implementation-script-xquery-1.4.jar
+7fcf31f95000-7fcf31f97000 r-xs 00010000 08:05 1723042                    /usr/local/share/applications/frascati/lib/howl-logger-0.1.11.jar
+7fcf31f97000-7fcf31f99000 r-xs 00002000 08:05 1723011                    /usr/local/share/applications/frascati/lib/frascati-implementation-resource-1.4.jar
+7fcf31f99000-7fcf31f9b000 r-xs 00003000 08:05 1722983                    /usr/local/share/applications/frascati/lib/task-deployment-2.3.1.jar
+7fcf31f9b000-7fcf31f9c000 r-xs 00001000 08:05 1723050                    /usr/local/share/applications/frascati/lib/monolog-api-1.8.jar
+7fcf31f9c000-7fcf31f9e000 r-xs 0000a000 08:05 1723031                    /usr/local/share/applications/frascati/lib/jsr311-api-1.1.1.jar
+7fcf31f9e000-7fcf31fa0000 r-xs 00005000 08:05 1722851                    /usr/local/share/applications/frascati/lib/jndi-client-5.5.0.jar
+7fcf31fa0000-7fcf31fa2000 r-xs 00003000 08:05 1722964                    /usr/local/share/applications/frascati/lib/fractal-bf-connectors-common-0.9.jar
+7fcf31fa2000-7fcf31fb6000 r-xs 00176000 08:05 1722918                    /usr/local/share/applications/frascati/lib/jgroups-all-2.2.8.jar
+7fcf31fb6000-7fcf31fb7000 r-xs 00003000 08:05 1722903                    /usr/local/share/applications/frascati/lib/jta-1.1.jar
+7fcf31fb7000-7fcf31fb8000 r-xs 00001000 08:05 1723018                    /usr/local/share/applications/frascati/lib/frascati-component-factory-juliac-jdt-1.4.jar
+7fcf31fb8000-7fcf31fba000 r-xs 00014000 08:05 1723022                    /usr/local/share/applications/frascati/lib/jcup-5.3.1.jar
+7fcf31fba000-7fcf31fbd000 r-xs 0001f000 08:05 1723029                    /usr/local/share/applications/frascati/lib/jgraph-fractal.jar
+7fcf31fbd000-7fcf31fbf000 r-xs 00007000 08:05 1722909                    /usr/local/share/applications/frascati/lib/frascati-metamodel-native-1.4.jar
+7fcf31fbf000-7fcf31fc3000 r-xs 00027000 08:05 1723060                    /usr/local/share/applications/frascati/lib/jetty-util-6.1.16.jar
+7fcf31fc3000-7fcf31fc5000 r-xs 00008000 08:05 1723074                    /usr/local/share/applications/frascati/lib/cxf-rt-bindings-xml-2.4.0.jar
+7fcf31fc5000-7fcf31fcf000 r-xs 0004e000 08:05 1722866                    /usr/local/share/applications/frascati/lib/cxf-api-2.4.0.jar
+7fcf31fcf000-7fcf31fd0000 r-xs 00000000 08:05 1722974                    /usr/local/share/applications/frascati/lib/frascati-implementation-script-beanshell-1.4.jar
+7fcf31fd0000-7fcf31fd2000 r-xs 00008000 08:05 1722889                    /usr/local/share/applications/frascati/lib/js-rhino-engine-1.6R7.jar
+7fcf31fd2000-7fcf31fd6000 r-xs 0002f000 08:05 1722896                    /usr/local/share/applications/frascati/lib/jetty-util-7.3.1.v20110307.jar
+7fcf31fd6000-7fcf31fdf000 r-xs 00048000 08:05 1722854                    /usr/local/share/applications/frascati/lib/backport-util-concurrent-3.0.jar
+7fcf31fdf000-7fcf31fe1000 r-xs 0001f000 08:05 1723093                    /usr/local/share/applications/frascati/lib/servlet-api-2.5-20081211.jar
+7fcf31fe1000-7fcf31fe5000 r-xs 00022000 08:05 1722724                    /usr/local/share/applications/frascati/lib/antlr-runtime-3.2.jar
+7fcf31fe5000-7fcf31fea000 r-xs 00040000 08:05 1722980                    /usr/local/share/applications/frascati/lib/bsh-2.0b4.jar
+7fcf31fea000-7fcf31fef000 r-xs 0005c000 08:05 1722960                    /usr/local/share/applications/frascati/lib/jnaerator-parser-0.9.4.jar
+7fcf31fef000-7fcf31ff1000 r-xs 00005000 08:05 1722897                    /usr/local/share/applications/frascati/lib/tools-0.4.1.5.jar
+7fcf31ff1000-7fcf31ff3000 r-xs 00001000 08:05 1722861                    /usr/local/share/applications/frascati/lib/frascati-binding-upnp-1.4.jar
+7fcf31ff3000-7fcf31ff6000 r-xs 00013000 08:05 1722955                    /usr/local/share/applications/frascati/lib/cxf-rt-ws-addr-2.4.0.jar
+7fcf31ff6000-7fcf31ffd000 r-xs 00060000 08:05 1723004                    /usr/local/share/applications/frascati/lib/jnaerator-0.9.4.jar
+7fcf31ffd000-7fcf31ffe000 r-xs 00001000 08:05 1722939                    /usr/local/share/applications/frascati/lib/frascati-debug-1.4.jar
+7fcf31ffe000-7fcf32001000 r-xs 0000a000 08:05 1723001                    /usr/local/share/applications/frascati/lib/explorer-reflector-plugin-1.0.jar
+7fcf32001000-7fcf32007000 r-xs 0002e000 08:05 1723088                    /usr/local/share/applications/frascati/lib/fractal-explorer-1.1.4.jar
+7fcf32007000-7fcf32009000 r-xs 00001000 08:05 1722845                    /usr/local/share/applications/frascati/lib/frascati-binding-rest-1.4.jar
+7fcf32009000-7fcf3200f000 r-xs 00042000 08:05 1723063                    /usr/local/share/applications/frascati/lib/joram-client-jms-5.5.0.jar
+7fcf3200f000-7fcf32012000 r-xs 00027000 08:05 1722855                    /usr/local/share/applications/frascati/lib/stringtemplate-3.2.jar
+7fcf32012000-7fcf32020000 r-xs 0007f000 08:05 1722959                    /usr/local/share/applications/frascati/lib/commons-collections-3.2.1.jar
+7fcf32020000-7fcf32025000 r-xs 00021000 08:05 1722858                    /usr/local/share/applications/frascati/lib/fractal-rmi-0.3.5.jar
+7fcf32025000-7fcf3202b000 r-xs 00050000 08:05 1723037                    /usr/local/share/applications/frascati/lib/cxf-rt-frontend-jaxws-2.4.0.jar
+7fcf3202b000-7fcf3202c000 r-xs 00001000 08:05 1723078                    /usr/local/share/applications/frascati/lib/jsr250-api-1.0.jar
+7fcf3202c000-7fcf3202e000 r-xs 00006000 08:05 1723116                    /usr/local/share/applications/frascati/lib/apollon-runtime-1.0.jar
+7fcf3202e000-7fcf3202f000 r-xs 00002000 08:05 1722849                    /usr/local/share/applications/frascati/lib/frascati-explorer-api-1.4.jar
+7fcf3202f000-7fcf32030000 r-xs 00000000 08:05 1722856                    /usr/local/share/applications/frascati/lib/frascati-implementation-script-groovy-1.4.jar
+7fcf32030000-7fcf32031000 r-xs 00004000 08:05 1723071                    /usr/local/share/applications/frascati/lib/jetty-continuation-7.3.1.v20110307.jar
+7fcf32031000-7fcf32033000 r-xs 00003000 08:05 1723076                    /usr/local/share/applications/frascati/lib/frascati-util-xml-1.4.jar
+7fcf32033000-7fcf32035000 r-xs 0000a000 08:05 1722931                    /usr/local/share/applications/frascati/lib/frascati-binding-factory-1.4.jar
+7fcf32035000-7fcf32036000 r-xs 00002000 08:05 1723005                    /usr/local/share/applications/frascati/lib/jython-engine-2.2.1.jar
+7fcf32036000-7fcf3203a000 r-xs 00015000 08:05 1722957                    /usr/local/share/applications/frascati/lib/rococoa-core-0.5.jar
+7fcf3203a000-7fcf3203d000 r-xs 0000e000 08:05 1722893                    /usr/local/share/applications/frascati/lib/jonathan-3.0.10.jar
+7fcf3203d000-7fcf32042000 r-xs 00023000 08:05 1723070                    /usr/local/share/applications/frascati/lib/fractal-adl-2.3.1.jar
+7fcf32042000-7fcf32044000 r-xs 00000000 08:05 1722919                    /usr/local/share/applications/frascati/lib/frascati-component-factory-tinfi-oo-1.4.jar
+7fcf32044000-7fcf32045000 r-xs 00001000 08:05 1722972                    /usr/local/share/applications/frascati/lib/frascati-component-factory-juliac-tinfi-oo-1.4.jar
+7fcf32045000-7fcf32048000 r-xs 0001c000 08:05 1723099                    /usr/local/share/applications/frascati/lib/jotm-2.0.10.jar
+7fcf32048000-7fcf3204d000 r-xs 00023000 08:05 1722837                    /usr/local/share/applications/frascati/lib/xmlschema-core-2.0.jar
+7fcf3204d000-7fcf32051000 r-xs 000e4000 08:05 1722883                    /usr/local/share/applications/frascati/lib/jna-3.2.5.jar
+7fcf32051000-7fcf3205a000 r-xs 00070000 08:05 1722990                    /usr/local/share/applications/frascati/lib/cxf-rt-core-2.4.0.jar
+7fcf3205a000-7fcf3205c000 r-xs 00000000 08:05 1722941                    /usr/local/share/applications/frascati/lib/frascati-component-factory-julia-1.4.jar
+7fcf3205c000-7fcf32061000 r-xs 00042000 08:05 1722871                    /usr/local/share/applications/frascati/lib/jetty-server-7.3.1.v20110307.jar
+7fcf32061000-7fcf3206c000 r-xs 00066000 08:05 1722906                    /usr/local/share/applications/frascati/lib/truezip-6.6.jar
+7fcf3206c000-7fcf32070000 r-xs 00028000 08:05 1723057                    /usr/local/share/applications/frascati/lib/stax2-api-3.0.2.jar
+7fcf32070000-7fcf32072000 r-xs 00000000 08:05 1722910                    /usr/local/share/applications/frascati/lib/frascati-servlet-cxf-1.4.jar
+7fcf32072000-7fcf3207b000 r-xs 00046000 08:05 1723081                    /usr/local/share/applications/frascati/lib/spring-aop-3.0.4.RELEASE.jar
+7fcf3207b000-7fcf3207c000 r-xs 00000000 08:05 1722954                    /usr/local/share/applications/frascati/lib/frascati-implementation-osgi-equinox-1.4.jar
+7fcf3207c000-7fcf3207e000 r-xs 0001e000 08:05 1722970                    /usr/local/share/applications/frascati/lib/saxon-9.1.0.8-dom.jar
+7fcf3207e000-7fcf3207f000 r-xs 00000000 08:05 1723006                    /usr/local/share/applications/frascati/lib/juliac-osgi-runtime-equinox-2.4.jar
+7fcf3207f000-7fcf32081000 r-xs 00018000 08:05 1723091                    /usr/local/share/applications/frascati/lib/servlet-api-2.5.jar
+7fcf32081000-7fcf32082000 r-xs 00003000 08:05 1723090                    /usr/local/share/applications/frascati/lib/frascati-implementation-script-1.4.jar
+7fcf32082000-7fcf32087000 r-xs 00032000 08:05 1723053                    /usr/local/share/applications/frascati/lib/geronimo-javamail_1.4_spec-1.7.1.jar
+7fcf32087000-7fcf32089000 r-xs 00007000 08:05 1723038                    /usr/local/share/applications/frascati/lib/fractal-bf-core-0.9.jar
+7fcf32089000-7fcf3208b000 r-xs 00005000 08:05 1722962                    /usr/local/share/applications/frascati/lib/jaxb2-basics-0.5.0.jar
+7fcf3208b000-7fcf3208d000 r-xs 00005000 08:05 1722944                    /usr/local/share/applications/frascati/lib/juliac-osgi-membranes-oo-2.4.jar
+7fcf3208d000-7fcf3208e000 r-xs 00003000 08:05 1722996                    /usr/local/share/applications/frascati/lib/script-api-1.0.jar
+7fcf3208e000-7fcf32122000 r-xs 00732000 08:05 1723108                    /usr/local/share/applications/frascati/lib/jruby-1.3.1.jar
+7fcf32122000-7fcf32131000 r-xs 000ee000 08:05 1723046                    /usr/local/share/applications/frascati/lib/ecore-2.4.0.jar
+7fcf32131000-7fcf32135000 r-xs 0002e000 08:05 1723008                    /usr/local/share/applications/frascati/lib/cxf-rt-transports-http-2.4.0.jar
+7fcf32135000-7fcf3213b000 r-xs 0006c000 08:05 1722994                    /usr/local/share/applications/frascati/lib/bridj-0.1.jar
+7fcf3213b000-7fcf3213c000 r-xs 00000000 08:05 1723084                    /usr/local/share/applications/frascati/lib/jcip-annotations-1.0.jar
+7fcf3213c000-7fcf32154000 r-xs 0010f000 08:05 1723094                    /usr/local/share/applications/frascati/lib/jython-2.2.1.jar
+7fcf32154000-7fcf32156000 r-xs 00002000 08:05 1723043                    /usr/local/share/applications/frascati/lib/juliac-jdt-2.4.jar
+7fcf32156000-7fcf3215d000 r-xs 00066000 08:05 1722890                    /usr/local/share/applications/frascati/lib/sca-model-2.0.1.2.jar
+7fcf3215d000-7fcf32165000 r-xs 0005f000 08:05 1722976                    /usr/local/share/applications/frascati/lib/velocity-1.6.4.jar
+7fcf32165000-7fcf32168000 r-xs 0000d000 08:05 1723121                    /usr/local/share/applications/frascati/lib/frascati-implementation-bpel-1.4.jar
+7fcf32168000-7fcf3221f000 r-xs 00951000 08:05 1722844                    /usr/local/share/applications/frascati/lib/jruby-complete-1.3.1.jar
+7fcf3221f000-7fcf32221000 r-xs 00003000 08:05 1723124                    /usr/local/share/applications/frascati/lib/easyplnk20-impl-3.0-alpha-1.jar
+7fcf32221000-7fcf32224000 r-xs 0000e000 08:05 1722942                    /usr/local/share/applications/frascati/lib/easywsdl11-impl-3.0-alpha-1.jar
+7fcf32224000-7fcf32226000 r-xs 00004000 08:05 1722935                    /usr/local/share/applications/frascati/lib/easyvprop20-impl-3.0-alpha-1.jar
+7fcf32226000-7fcf3222e000 r-xs 0003f000 08:05 1723045                    /usr/local/share/applications/frascati/lib/easybpel.xpath.exp.impl-1.4-alpha-1.jar
+7fcf3222e000-7fcf32235000 r-xs 00044000 08:05 1722901                    /usr/local/share/applications/frascati/lib/easybpel.model.bpel.impl-1.4-alpha-1.jar
+7fcf32235000-7fcf32237000 r-xs 00004000 08:05 1722864                    /usr/local/share/applications/frascati/lib/fractal-bf-connectors-soap-cxf-0.9.jar
+7fcf32237000-7fcf32239000 r-xs 00000000 08:05 1723041                    /usr/local/share/applications/frascati/lib/juliac-osgi-bootstrap-2.4.jar
+7fcf32239000-7fcf3223e000 r-xs 00037000 08:05 1723020                    /usr/local/share/applications/frascati/lib/joram-mom-core-5.5.0.jar
+7fcf3223e000-7fcf32240000 r-xs 00003000 08:05 1722946                    /usr/local/share/applications/frascati/lib/asm-analysis-3.1.jar
+7fcf32240000-7fcf3227a000 r-xs 002bc000 08:05 1722936                    /usr/local/share/applications/frascati/lib/jaxb-xjc-2.1.13.jar
+7fcf3227a000-7fcf32282000 r-xs 0007f000 08:05 1722840                    /usr/local/share/applications/frascati/lib/cxf-rt-frontend-jaxrs-2.4.0.jar
+7fcf32282000-7fcf32285000 r-xs 00015000 08:05 1723066                    /usr/local/share/applications/frascati/lib/common-3.4.0.jar
+7fcf32285000-7fcf32289000 r-xs 00023000 08:05 1722862                    /usr/local/share/applications/frascati/lib/cxf-tools-common-2.4.0.jar
+7fcf32289000-7fcf3228b000 r-xs 00008000 08:05 1723051                    /usr/local/share/applications/frascati/lib/frascati-binding-jms-1.4.jar
+7fcf3228b000-7fcf3228e000 r-xs 0000e000 08:05 1723107                    /usr/local/share/applications/frascati/lib/cxf-rt-transports-http-jetty-2.4.0.jar
+7fcf3228e000-7fcf32290000 r-xs 0000b000 08:05 1722873                    /usr/local/share/applications/frascati/lib/fscript-console-2.1.3.jar
+7fcf32290000-7fcf322b6000 r-xs 003c9000 08:05 1723111                    /usr/local/share/applications/frascati/lib/core-3.3.0.771.jar
+7fcf322b6000-7fcf322ca000 r-xs 0012f000 08:05 1723036                    /usr/local/share/applications/frascati/lib/ant-1.7.1.jar
+7fcf322ca000-7fcf322cc000 r-xs 00001000 08:05 1723019                    /usr/local/share/applications/frascati/lib/frascati-binding-jna-1.4.jar
+7fcf322cc000-7fcf322d1000 r-xs 00050000 08:05 1722887                    /usr/local/share/applications/frascati/lib/a3-rt-5.5.0.jar
+7fcf322d1000-7fcf322f1000 r-xs 001a8000 08:05 1722950                    /usr/local/share/applications/frascati/lib/sdedit-3.0.5.jar
+7fcf322f1000-7fcf322f5000 r-xs 0001c000 08:05 1723026                    /usr/local/share/applications/frascati/lib/monolog-5.1.1.jar
+7fcf322f5000-7fcf322f7000 r-xs 0000f000 08:05 1723062                    /usr/local/share/applications/frascati/lib/neethi-3.0.0.jar
+7fcf322f7000-7fcf322fb000 r-xs 00038000 08:05 1723040                    /usr/local/share/applications/frascati/lib/commons-lang-2.2.jar
+7fcf322fb000-7fcf322fd000 r-xs 0000b000 08:05 1722932                    /usr/local/share/applications/frascati/lib/cxf-tools-wsdlto-core-2.4.0.jar
+7fcf322fd000-7fcf32342000 r-xs 00407000 08:05 1723097                    /usr/local/share/applications/frascati/lib/groovy-all-1.6.4.jar
+7fcf32342000-7fcf32344000 r-xs 00003000 08:05 1722899                    /usr/local/share/applications/frascati/lib/jaxb2-basics-runtime-0.5.0.jar
+7fcf32344000-7fcf32345000 r-xs 00008000 08:05 1722834                    /usr/local/share/applications/frascati/lib/commons-cli-1.1.jar
+7fcf32345000-7fcf32346000 r-xs 00000000 08:05 1723028                    /usr/local/share/applications/frascati/lib/frascati-implementation-script-jython-1.4.jar
+7fcf32346000-7fcf32347000 r-xs 00006000 08:05 1722984                    /usr/local/share/applications/frascati/lib/sca-model-introspection-2.0.1.2.jar
+7fcf32347000-7fcf3234e000 r-xs 000b2000 08:05 1722868                    /usr/local/share/applications/frascati/lib/js-1.7R1.jar
+7fcf3234e000-7fcf32361000 r-xs 0009c000 08:05 1722961                    /usr/local/share/applications/frascati/lib/explorer-1.0.jar
+7fcf32361000-7fcf32363000 r-xs 0000e000 08:05 1722848                    /usr/local/share/applications/frascati/lib/commons-pool-1.3.jar
+7fcf32363000-7fcf32365000 r-xs 00004000 08:05 1723030                    /usr/local/share/applications/frascati/lib/frascati-introspection-api-1.4.jar
+7fcf32365000-7fcf32367000 r-xs 00009000 08:05 1722995                    /usr/local/share/applications/frascati/lib/cxf-tools-wsdlto-databinding-jaxb-2.4.0.jar
+7fcf32367000-7fcf32368000 r-xs 00000000 08:05 1723119                    /usr/local/share/applications/frascati/lib/frascati-all-modules-1.4.jar
+7fcf32368000-7fcf3236c000 r-xs 00025000 08:05 1723102                    /usr/local/share/applications/frascati/lib/spring-expression-3.0.4.RELEASE.jar
+7fcf3236c000-7fcf3236d000 r-xs 00005000 08:05 1723079                    /usr/local/share/applications/frascati/lib/frascati-jmx-1.4.jar
+7fcf3236d000-7fcf32372000 r-xs 00068000 08:05 1723047                    /usr/local/share/applications/frascati/lib/antlr-2.7.7.jar
+7fcf32372000-7fcf32374000 r-xs 00006000 08:05 1722989                    /usr/local/share/applications/frascati/lib/fractal-bf-connectors-rmi-0.9.jar
+7fcf32374000-7fcf32376000 r-xs 00005000 08:05 1722847                    /usr/local/share/applications/frascati/lib/basic-0.4.1.5.jar
+7fcf32376000-7fcf3237d000 r-xs 0003e000 08:05 1722979                    /usr/local/share/applications/frascati/lib/cglib-2.2.jar
+7fcf3237d000-7fcf32380000 r-xs 0001e000 08:05 1722912                    /usr/local/share/applications/frascati/lib/jabsorb-1.3.1.jar
+7fcf32380000-7fcf32381000 r-xs 00002000 08:05 1723015                    /usr/local/share/applications/frascati/lib/frascati-implementation-osgi-1.4.jar
+7fcf32381000-7fcf32383000 r-xs 00009000 08:05 1723068                    /usr/local/share/applications/frascati/lib/ast-core-2.3.1.jar
+7fcf32383000-7fcf32385000 r-xs 00004000 08:05 1723014                    /usr/local/share/applications/frascati/lib/frascati-implementation-fractal-1.4.jar
+7fcf32385000-7fcf3238b000 r-xs 00038000 08:05 1723098                    /usr/local/share/applications/frascati/lib/fscript-2.1.3.jar
+7fcf3238b000-7fcf3238c000 r-xs 0000e000 08:05 1723017                    /usr/local/share/applications/frascati/lib/anarres-cpp-jnaerator-1.2.5-JNAerator.3.jar
+7fcf3238c000-7fcf32393000 r-xs 000a5000 08:05 1723010                    /usr/local/share/applications/frascati/lib/mysql-connector-java-5.1.6.jar
+7fcf32393000-7fcf32395000 r-xs 00000000 08:05 1722947                    /usr/local/share/applications/frascati/lib/ow-misc-1.0.jar
+7fcf32395000-7fcf32398000 r-xs 00012000 08:05 1722933                    /usr/local/share/applications/frascati/lib/jobs-3.4.0.jar
+7fcf32398000-7fcf32399000 r-xs 00007000 08:05 1722924                    /usr/local/share/applications/frascati/lib/commons-logging-1.0.3.jar
+7fcf32399000-7fcf3239b000 r-xs 00001000 08:05 1720629                    /usr/local/share/applications/frascati/lib/controlpoint-0.1.jar
+7fcf3239b000-7fcf3239c000 r-xs 0000a000 08:05 1723123                    /usr/local/share/applications/frascati/lib/asm-3.1.jar
+7fcf3239c000-7fcf323a1000 r-xs 0002a000 08:05 1723016                    /usr/local/share/applications/frascati/lib/commons-beanutils-1.7.0.jar
+7fcf323a1000-7fcf323a2000 r-xs 00002000 08:05 1723054                    /usr/local/share/applications/frascati/lib/ant-launcher-1.7.1.jar
+7fcf323a2000-7fcf323a5000 r-xs 0000a000 08:05 1723052                    /usr/local/share/applications/frascati/lib/jnaerator-runtime-0.9.4.jar
+7fcf323a5000-7fcf323a6000 r-xs 0000e000 08:05 1722843                    /usr/local/share/applications/frascati/lib/jline-0.9.91.jar
+7fcf323a6000-7fcf323a8000 r-xs 00012000 08:05 1722948                    /usr/local/share/applications/frascati/lib/jetty-security-7.3.1.v20110307.jar
+7fcf323a8000-7fcf323aa000 r-xs 00006000 08:05 1722977                    /usr/local/share/applications/frascati/lib/geronimo-jms_1.1_spec-1.1.1.jar
+7fcf323aa000-7fcf323ab000 r-xs 00000000 08:05 1722874                    /usr/local/share/applications/frascati/lib/frascati-implementation-script-jruby-1.4.jar
+7fcf323ab000-7fcf323ac000 r-xs 00005000 08:05 1723048                    /usr/local/share/applications/frascati/lib/jruby-engine-1.1.7.jar
+7fcf323ac000-7fcf323ae000 r-xs 0000e000 08:05 1723064                    /usr/local/share/applications/frascati/lib/oro-2.0.8.jar
+7fcf323ae000-7fcf323b0000 r-xs 00001000 08:05 1722920                    /usr/local/share/applications/frascati/lib/upnp2java-0.1.jar
+7fcf323b0000-7fcf323b6000 r-xs 00019000 08:05 1722993                    /usr/local/share/applications/frascati/lib/xmlParserAPIs-2.6.2.jar
+7fcf323b6000-7fcf323bd000 r-xs 00049000 08:05 1722839                    /usr/local/share/applications/frascati/lib/cxf-common-utilities-2.4.0.jar
+7fcf323bd000-7fcf323bf000 r-xs 00001000 08:05 1723044                    /usr/local/share/applications/frascati/lib/frascati-binding-rmi-1.4.jar
+7fcf323bf000-7fcf323c5000 r-xs 0003d000 08:05 1723103                    /usr/local/share/applications/frascati/lib/cyberlink-1.7.0.jar
+7fcf323c5000-7fcf323c9000 r-xs 0003d000 08:05 1723109                    /usr/local/share/applications/frascati/lib/appframework-1.0.3.jar
+7fcf323c9000-7fcf323cd000 r-xs 00035000 08:05 1722908                    /usr/local/share/applications/frascati/lib/soap-2.3.jar
+7fcf323cd000-7fcf323cf000 r-xs 00015000 08:05 1723112                    /usr/local/share/applications/frascati/lib/cxf-rt-databinding-jaxb-2.4.0.jar
+7fcf323cf000-7fcf323d0000 r-xs 00001000 08:05 1722971                    /usr/local/share/applications/frascati/lib/easybpel.extended.service.activity-1.4-alpha-1.jar
+7fcf323d0000-7fcf323d1000 r-xs 00000000 08:05 1723083                    /usr/local/share/applications/frascati/lib/frascati-implementation-script-javascript-1.4.jar
+7fcf323d1000-7fcf323d2000 r-xs 00001000 08:05 1722604                    /usr/local/share/applications/frascati/lib/device-0.1.jar
+7fcf323d2000-7fcf323d5000 r-xs 00016000 08:05 1723086                    /usr/local/share/applications/frascati/lib/cxf-rt-frontend-simple-2.4.0.jar
+7fcf323d5000-7fcf323d7000 r-xs 00011000 08:05 1722865                    /usr/local/share/applications/frascati/lib/julia-asm-2.5.2.jar
+7fcf323d7000-7fcf323d9000 r-xs 00019000 08:05 1722900                    /usr/local/share/applications/frascati/lib/jetty-http-7.3.1.v20110307.jar
+7fcf323d9000-7fcf323e2000 r-xs 00051000 08:05 1722914                    /usr/local/share/applications/frascati/lib/spring-core-3.0.4.RELEASE.jar
+7fcf323e2000-7fcf323f3000 r-xs 00102000 08:05 1723034                    /usr/local/share/applications/frascati/lib/osgi-3.5.0.v20090520.jar
+7fcf323f3000-7fcf323fa000 r-xs 00079000 08:05 1722905                    /usr/local/share/applications/frascati/lib/jetty-6.1.16.jar
+7fcf323fa000-7fcf323fd000 r-xs 00007000 08:05 1723104                    /usr/local/share/applications/frascati/lib/connector-api-1.5.jar
+7fcf323fd000-7fcf32400000 r-xs 00012000 08:05 1722988                    /usr/local/share/applications/frascati/lib/tuscany-model-2.0.1.2.jar
+7fcf32400000-7fcf32404000 r-xs 00020000 08:05 1722992                    /usr/local/share/applications/frascati/lib/ochafik-util-0.9.4.jar
+7fcf32404000-7fcf3242f000 r-xs 001fc000 08:05 1722898                    /usr/local/share/applications/frascati/lib/guava-18.0.jar
+7fcf3242f000-7fcf32431000 r-xs 00005000 08:05 1723118                    /usr/local/share/applications/frascati/lib/jaxb2-basics-tools-0.5.0.jar
+7fcf32431000-7fcf32432000 r-xs 00003000 08:05 1722907                    /usr/local/share/applications/frascati/lib/fractal-bf-connectors-json-rpc-0.9.jar
+7fcf32432000-7fcf32433000 r-xs 00002000 08:05 1722973                    /usr/local/share/applications/frascati/lib/swing-worker-1.1.jar
+7fcf32433000-7fcf32435000 r-xs 00003000 08:05 1722982                    /usr/local/share/applications/frascati/lib/cxf-rt-transports-common-2.4.0.jar
+7fcf32435000-7fcf32437000 r-xs 00003000 08:05 1722940                    /usr/local/share/applications/frascati/lib/connector-1.0.jar
+7fcf32437000-7fcf32438000 r-xs 00005000 08:05 1722894                    /usr/local/share/applications/frascati/lib/frascati-interface-native-1.4.jar
+7fcf32438000-7fcf3243b000 r-xs 00013000 08:05 1723105                    /usr/local/share/applications/frascati/lib/jaxb-api-2.1.jar
+7fcf3243b000-7fcf3243f000 r-xs 000ea000 08:05 1722877                    /usr/local/share/applications/frascati/lib/jna-jnaerator-3.2.5.jar
+7fcf3243f000-7fcf32441000 r-xs 00013000 08:05 1722997                    /usr/local/share/applications/frascati/lib/jetty-io-7.3.1.v20110307.jar
+7fcf32441000-7fcf32443000 r-xs 00002000 08:05 1722869                    /usr/local/share/applications/frascati/lib/model-0.1.jar
+7fcf32443000-7fcf32447000 r-xs 00020000 08:05 1723065                    /usr/local/share/applications/frascati/lib/frascati-sca-parser-1.4.jar
+7fcf32447000-7fcf32449000 r-xs 0000d000 08:05 1722922                    /usr/local/share/applications/frascati/lib/a3-common-5.5.0.jar
+7fcf32449000-7fcf3244c000 r-xs 00015000 08:05 1722904                    /usr/local/share/applications/frascati/lib/geronimo-servlet_3.0_spec-1.0.jar
+7fcf3244c000-7fcf3244e000 r-xs 00001000 08:05 1722928                    /usr/local/share/applications/frascati/lib/frascati-binding-ws-1.4.jar
+7fcf3244e000-7fcf32456000 r-xs 0004b000 08:05 1723021                    /usr/local/share/applications/frascati/lib/org.osgi-3.0.0.jar
+7fcf32456000-7fcf32457000 r-xs 00001000 08:05 1722963                    /usr/local/share/applications/frascati/lib/jotm_jrmp_stubs-2.0.10.jar
+7fcf32457000-7fcf32459000 r-xs 00004000 08:05 1723058                    /usr/local/share/applications/frascati/lib/juliac-osgi-opt-oo-2.4.jar
+7fcf32459000-7fcf3245b000 r-xs 00007000 08:05 1723024                    /usr/local/share/applications/frascati/lib/asm-util-3.1.jar
+7fcf3245b000-7fcf3245c000 r-xs 00005000 08:05 1722951                    /usr/local/share/applications/frascati/lib/frascati-metamodel-upnp-1.4.jar
+7fcf3245c000-7fcf3245d000 r-xs 0001c000 08:05 1722891                    /usr/local/share/applications/frascati/lib/swing-layout-1.0.3.jar
+7fcf3245d000-7fcf3245f000 r-xs 00005000 08:05 1722882                    /usr/local/share/applications/frascati/lib/frascati-binding-http-1.4.jar
+7fcf3245f000-7fcf32461000 r-xs 0000f000 08:05 1723069                    /usr/local/share/applications/frascati/lib/cxf-tools-validator-2.4.0.jar
+7fcf32461000-7fcf32462000 r-xs 00006000 08:05 1722878                    /usr/local/share/applications/frascati/lib/fractal-util-1.1.2.jar
+7fcf32462000-7fcf3247d000 r-xs 004b6000 08:05 1723000                    /usr/local/share/applications/frascati/lib/saxon-9.1.0.8.jar
+7fcf3247d000-7fcf3247f000 r-xs 00001000 08:05 1723080                    /usr/local/share/applications/frascati/lib/frascati-factory-tools-1.4.jar
+7fcf3247f000-7fcf32490000 r-xs 00092000 08:05 1722879                    /usr/local/share/applications/frascati/lib/spring-context-3.0.4.RELEASE.jar
+7fcf32490000-7fcf32492000 r-xs 0000a000 08:05 1722863                    /usr/local/share/applications/frascati/lib/frascati-model-2.0.1.2.jar
+7fcf32492000-7fcf32494000 r-xs 0000a000 08:05 1723072                    /usr/local/share/applications/frascati/lib/dtdparser-1.21.jar
+7fcf32494000-7fcf32496000 r-xs 0001c000 08:05 1723013                    /usr/local/share/applications/frascati/lib/commons-dbcp-1.2.2.jar
+7fcf32496000-7fcf32498000 r-xs 00002000 08:05 1722915                    /usr/local/share/applications/frascati/lib/fractal-bf-connectors-rest-cxf-0.9.jar
+7fcf32498000-7fcf3249a000 r-xs 00001000 08:05 1722927                    /usr/local/share/applications/frascati/lib/frascati-binding-jsonrpc-1.4.jar
+7fcf3249a000-7fcf3249c000 r-xs 0000f000 08:05 1723056                    /usr/local/share/applications/frascati/lib/juliac-osgi-runtime-core-2.4.jar
+7fcf3249c000-7fcf3249d000 r-xs 00001000 08:05 1722930                    /usr/local/share/applications/frascati/lib/easyviper.extended.behaviours.abstractbehaviour-1.4-alpha-1.jar
+7fcf3249d000-7fcf3249f000 r-xs 00002000 08:05 1723120                    /usr/local/share/applications/frascati/lib/easyviper.extended.service.behaviour-1.4-alpha-1.jar
+7fcf3249f000-7fcf324a0000 r-xs 00001000 08:05 1723059                    /usr/local/share/applications/frascati/lib/easyviper.extended.service.autotrash-1.4-alpha-1.jar
+7fcf324a0000-7fcf324a1000 r-xs 00001000 08:05 1722943                    /usr/local/share/applications/frascati/lib/easyviper.extended.service.autoflush-1.4-alpha-1.jar
+7fcf324a1000-7fcf324aa000 r-xs 00080000 08:05 1722998                    /usr/local/share/applications/frascati/lib/easyviper.core.impl-1.4-alpha-1.jar
+7fcf324aa000-7fcf324ac000 r-xs 00018000 08:05 1723023                    /usr/local/share/applications/frascati/lib/easybox-impl-1.0-alpha-1.jar
+7fcf324ac000-7fcf324b0000 r-xs 00018000 08:05 1722886                    /usr/local/share/applications/frascati/lib/easyschema10-impl-3.0-alpha-1.jar
+7fcf324b0000-7fcf324b2000 r-xs 00004000 08:05 1722902                    /usr/local/share/applications/frascati/lib/xsd2xml-3.0-alpha-1.jar
+7fcf324b2000-7fcf324b7000 r-xs 00020000 08:05 1723067                    /usr/local/share/applications/frascati/lib/wsdl4j-1.6.2.jar
+7fcf324b7000-7fcf324b9000 r-xs 00006000 08:05 1723049                    /usr/local/share/applications/frascati/lib/geronimo-stax-api_1.0_spec-1.0.1.jar
+7fcf324b9000-7fcf324bb000 r-xs 00003000 08:05 1722835                    /usr/local/share/applications/frascati/lib/legacy-jaxb-core-1.3.0-alpha-1.jar
+7fcf324bb000-7fcf324be000 r-xs 0000a000 08:05 1723122                    /usr/local/share/applications/frascati/lib/ws-addressing-definition-1.3.0-alpha-1.jar
+7fcf324be000-7fcf324c6000 r-xs 00028000 08:05 1722911                    /usr/local/share/applications/frascati/lib/xml-apis-1.3.04.jar
+7fcf324c6000-7fcf324c9000 r-xs 00018000 08:05 1722952                    /usr/local/share/applications/frascati/lib/xom-1.0.jar
+7fcf324c9000-7fcf324cc000 r-xs 00023000 08:05 1722958                    /usr/local/share/applications/frascati/lib/jdom-1.0.jar
+7fcf324cc000-7fcf324d1000 r-xs 00048000 08:05 1722876                    /usr/local/share/applications/frascati/lib/dom4j-1.6.1.jar
+7fcf324d1000-7fcf324d7000 r-xs 00032000 08:05 1723106                    /usr/local/share/applications/frascati/lib/jaxen-1.1.1.jar
+7fcf324d7000-7fcf324da000 r-xs 00023000 08:05 1722929                    /usr/local/share/applications/frascati/lib/jdom-1.1.jar
+7fcf324da000-7fcf324de000 r-xs 0000a000 08:05 1722880                    /usr/local/share/applications/frascati/lib/easybpel.xpath.exp.api-1.4-alpha-1.jar
+7fcf324de000-7fcf324df000 r-xs 00001000 08:05 1722892                    /usr/local/share/applications/frascati/lib/easyvprop20-api-3.0-alpha-1.jar
+7fcf324df000-7fcf324e0000 r-xs 00001000 08:05 1722985                    /usr/local/share/applications/frascati/lib/easyplnk20-api-3.0-alpha-1.jar
+7fcf324e0000-7fcf324e2000 r-xs 00013000 08:05 1722850                    /usr/local/share/applications/frascati/lib/xml-resolver-1.2.jar
+7fcf324e2000-7fcf324e4000 r-xs 00007000 08:05 1722881                    /usr/local/share/applications/frascati/lib/easybox-api-1.0-alpha-1.jar
+7fcf324e4000-7fcf324e8000 r-xs 0000c000 08:05 1722991                    /usr/local/share/applications/frascati/lib/easyschema10-api-3.0-alpha-1.jar
+7fcf324e8000-7fcf324eb000 r-xs 00004000 08:05 1723009                    /usr/local/share/applications/frascati/lib/easywsdl11-api-3.0-alpha-1.jar
+7fcf324eb000-7fcf324ee000 r-xs 0000a000 08:05 1722934                    /usr/local/share/applications/frascati/lib/service-description-layer-1.0-alpha-1.jar
+7fcf324ee000-7fcf324f8000 r-xs 0006a000 08:05 1723035                    /usr/local/share/applications/frascati/lib/easybpel.model.bpel.api-1.4-alpha-1.jar
+7fcf324f8000-7fcf324fa000 r-xs 00007000 08:05 1723007                    /usr/local/share/applications/frascati/lib/easybpel.extended.activities.configuration-1.4-alpha-1.jar
+7fcf324fa000-7fcf324fd000 r-xs 00032000 08:05 1722846                    /usr/local/share/applications/frascati/lib/xmi-2.4.0.jar
+7fcf324fd000-7fcf324ff000 r-xs 0000f000 08:05 1723032                    /usr/local/share/applications/frascati/lib/runtime-3.4.0.jar
+7fcf324ff000-7fcf32502000 r-xs 0001d000 08:05 1723061                    /usr/local/share/applications/frascati/lib/frascati-tinfi-membranes-oo-1.4.4.jar
+7fcf32502000-7fcf32515000 r-xs 000c4000 08:05 1723082                    /usr/local/share/applications/frascati/lib/jaxb-impl-2.1.13.jar
+7fcf32515000-7fcf32519000 r-xs 00027000 08:05 1722953                    /usr/local/share/applications/frascati/lib/cxf-rt-bindings-soap-2.4.0.jar
+7fcf32519000-7fcf3251e000 r-xs 00025000 08:05 1722923                    /usr/local/share/applications/frascati/lib/joram-shared-5.5.0.jar
+7fcf3251e000-7fcf32523000 r-xs 00070000 08:05 1723110                    /usr/local/share/applications/frascati/lib/woodstox-core-asl-4.1.1.jar
+7fcf32523000-7fcf32525000 r-xs 00010000 08:05 1723039                    /usr/local/share/applications/frascati/lib/jettison-1.3.jar
+7fcf32525000-7fcf32529000 r-xs 00023000 08:05 1722884                    /usr/local/share/applications/frascati/lib/cxf-tools-wsdlto-frontend-jaxws-2.4.0.jar
+7fcf32529000-7fcf3252b000 r-xs 00002000 08:05 1723003                    /usr/local/share/applications/frascati/lib/fractal-bf-connectors-upnp-0.9.jar
+7fcf3252b000-7fcf3252d000 r-xs 00007000 08:05 1723027                    /usr/local/share/applications/frascati/lib/frascati-component-factory-juliac-1.4.jar
+7fcf3252d000-7fcf3252f000 r-xs 00001000 08:05 1722999                    /usr/local/share/applications/frascati/lib/slf4j-jdk14-1.5.0.jar
+7fcf3252f000-7fcf32531000 r-xs 00003000 08:05 1723025                    /usr/local/share/applications/frascati/lib/frascati-runtime-factory-1.4.jar
+7fcf32531000-7fcf32533000 r-xs 00003000 08:05 1722841                    /usr/local/share/applications/frascati/lib/frascati-xquery-1.4.jar
+7fcf32533000-7fcf32537000 r-xs 00036000 08:05 1723095                    /usr/local/share/applications/frascati/lib/cxf-rt-databinding-aegis-2.4.0.jar
+7fcf32537000-7fcf32538000 r-xs 00001000 08:05 1722968                    /usr/local/share/applications/frascati/lib/frascati-metamodel-tuscany-1.4.jar
+7fcf32538000-7fcf32542000 r-xs 00057000 08:05 1722857                    /usr/local/share/applications/frascati/lib/spring-web-3.0.5.RELEASE.jar
+7fcf32542000-7fcf32544000 r-xs 00005000 08:05 1722981                    /usr/local/share/applications/frascati/lib/commandline-1.0.jar
+7fcf32544000-7fcf3254b000 r-xs 00037000 08:05 1722875                    /usr/local/share/applications/frascati/lib/retrotranslator-runtime-1.2.1.jar
+7fcf3254b000-7fcf3254f000 r-xs 00024000 08:05 1723077                    /usr/local/share/applications/frascati/lib/ochafik-swing-0.9.4.jar
+7fcf3254f000-7fcf32551000 r-xs 00004000 08:05 1723113                    /usr/local/share/applications/frascati/lib/frascati-transaction-1.4.jar
+7fcf32551000-7fcf32563000 r-xs 00245000 08:05 1723012                    /usr/local/share/applications/frascati/lib/icu4j-2.6.1.jar
+7fcf32563000-7fcf32564000 r-xs 00005000 08:05 1722969                    /usr/local/share/applications/frascati/lib/frascati-interface-wsdl-1.4.jar
+7fcf32564000-7fcf3257c000 r-xs 00115000 08:05 1722872                    /usr/local/share/applications/frascati/lib/xercesImpl-2.9.1.jar
+7fcf3257c000-7fcf3257e000 r-xs 00001000 08:05 1722860                    /usr/local/share/applications/frascati/lib/frascati-util-1.4.jar
+7fcf3257e000-7fcf32583000 r-xs 00035000 08:05 1722888                    /usr/local/share/applications/frascati/lib/frascati-assembly-factory-1.4.jar
+7fcf32583000-7fcf32585000 r-xs 00008000 08:05 1722836                    /usr/local/share/applications/frascati/lib/saxon-9.1.0.8-jdom.jar
+7fcf32585000-7fcf32586000 r-xs 00001000 08:05 1722917                    /usr/local/share/applications/frascati/lib/frascati-metamodel-frascati-1.4.jar
+7fcf32586000-7fcf32587000 r-xs 00007000 08:05 1723002                    /usr/local/share/applications/frascati/lib/frascati-tinfi-mixins-1.4.4.jar
+7fcf32587000-7fcf32589000 r-xs 0000f000 08:05 1722987                    /usr/local/share/applications/frascati/lib/julia-mixins-2.5.2.jar
+7fcf32589000-7fcf3258b000 r-xs 00002000 08:05 1722926                    /usr/local/share/applications/frascati/lib/juliac-oo-2.4.jar
+7fcf3258b000-7fcf3258d000 r-xs 0000b000 08:05 1723101                    /usr/local/share/applications/frascati/lib/frascati-tinfi-oo-1.4.4.jar
+7fcf3258d000-7fcf32591000 r-xs 00024000 08:05 1722842                    /usr/local/share/applications/frascati/lib/juliac-core-2.4.jar
+7fcf32591000-7fcf32593000 r-xs 00002000 08:05 1723075                    /usr/local/share/applications/frascati/lib/fraclet-annotations-3.3.jar
+7fcf32593000-7fcf32595000 r-xs 00003000 08:05 1723089                    /usr/local/share/applications/frascati/lib/osoa-java-api-2.0.1.2.jar
+7fcf32595000-7fcf32597000 r-xs 00005000 08:05 1723115                    /usr/local/share/applications/frascati/lib/sca-caa-apis-1.1-CD04.jar
+7fcf32597000-7fcf32599000 r-xs 00000000 08:05 1722965                    /usr/local/share/applications/frascati/lib/aopalliance-1.0.jar
+7fcf32599000-7fcf3259b000 r-xs 00001000 08:05 1723114                    /usr/local/share/applications/frascati/lib/frascati-tinfi-runtime-api-1.4.4.jar
+7fcf3259b000-7fcf3259c000 r-xs 00003000 08:05 1722967                    /usr/local/share/applications/frascati/lib/juliac-runtime-2.4.jar
+7fcf3259c000-7fcf325a0000 r-xs 0001c000 08:05 1723033                    /usr/local/share/applications/frascati/lib/monolog-1.8.jar
+7fcf325a0000-7fcf325a2000 r-xs 00008000 08:05 1722852                    /usr/local/share/applications/frascati/lib/julia-runtime-2.5.2.jar
+7fcf325a2000-7fcf325a4000 r-xs 0000d000 08:05 1722916                    /usr/local/share/applications/frascati/lib/frascati-tinfi-runtime-1.4.4.jar
+7fcf325a4000-7fcf325a6000 r-xs 00002000 08:05 1722870                    /usr/local/share/applications/frascati/lib/fractal-api-2.0.2.jar
+7fcf325a6000-7fcf325a8000 r-xs 00000000 08:05 1722853                    /usr/local/share/applications/frascati/lib/easycommons-sca-api-1.0-alpha-1.jar
+7fcf325a8000-7fcf325c4000 r-xs 0051d000 08:05 1722938                    /usr/local/share/applications/frascati/lib/saxonhe-9.2.0.6.jar
+7fcf325c4000-7fcf325c7000 r-xs 00015000 08:05 1722838                    /usr/local/share/applications/frascati/lib/xmlunit-1.3.jar
+7fcf325c7000-7fcf325cd000 r-xs 00038000 08:05 1722885                    /usr/local/share/applications/frascati/lib/easywsdl-schema-2.4-alpha-1.jar
+7fcf325cd000-7fcf325ce000 ---p 00000000 00:00 0 
+7fcf325ce000-7fcf326ce000 rwxp 00000000 00:00 0 
+7fcf326ce000-7fcf326d1000 ---p 00000000 00:00 0 
+7fcf326d1000-7fcf327cf000 rwxp 00000000 00:00 0 
+7fcf327cf000-7fcf327d3000 ---p 00000000 00:00 0 
+7fcf327d3000-7fcf328d0000 rwxp 00000000 00:00 0 
+7fcf328d0000-7fcf328d4000 ---p 00000000 00:00 0 
+7fcf328d4000-7fcf329d1000 rwxp 00000000 00:00 0 
+7fcf329d1000-7fcf329d4000 ---p 00000000 00:00 0 
+7fcf329d4000-7fcf32ad2000 rwxp 00000000 00:00 0 
+7fcf32ad2000-7fcf32ad5000 ---p 00000000 00:00 0 
+7fcf32ad5000-7fcf32bd3000 rwxp 00000000 00:00 0 
+7fcf32bd3000-7fcf32bd6000 ---p 00000000 00:00 0 
+7fcf32bd6000-7fcf32cd4000 rwxp 00000000 00:00 0 
+7fcf32cd4000-7fcf32cd5000 ---p 00000000 00:00 0 
+7fcf32cd5000-7fcf33712000 rwxp 00000000 00:00 0 
+7fcf33712000-7fcf338a9000 r-xs 03022000 08:05 2066925                    /usr/java/jdk1.6.0_23/jre/lib/rt.jar
+7fcf338a9000-7fcf338aa000 ---p 00000000 00:00 0 
+7fcf338aa000-7fcf339aa000 rwxp 00000000 00:00 0 
+7fcf339aa000-7fcf339ab000 ---p 00000000 00:00 0 
+7fcf339ab000-7fcf33aab000 rwxp 00000000 00:00 0 
+7fcf33aab000-7fcf33aac000 ---p 00000000 00:00 0 
+7fcf33aac000-7fcf33bac000 rwxp 00000000 00:00 0 
+7fcf33bac000-7fcf33bad000 ---p 00000000 00:00 0 
+7fcf33bad000-7fcf33cad000 rwxp 00000000 00:00 0 
+7fcf33cad000-7fcf33cae000 ---p 00000000 00:00 0 
+7fcf33cae000-7fcf33dae000 rwxp 00000000 00:00 0 
+7fcf33dae000-7fcf33daf000 ---p 00000000 00:00 0 
+7fcf33daf000-7fcf33eaf000 rwxp 00000000 00:00 0 
+7fcf33eaf000-7fcf33eb0000 ---p 00000000 00:00 0 
+7fcf33eb0000-7fcf34018000 rwxp 00000000 00:00 0 
+7fcf34018000-7fcf34626000 rwxp 00000000 00:00 0 
+7fcf34626000-7fcf3463f000 rwxp 00000000 00:00 0 
+7fcf3463f000-7fcf3464f000 rwxp 00000000 00:00 0 
+7fcf3464f000-7fcf346b7000 rwxp 00000000 00:00 0 
+7fcf346b7000-7fcf34cc4000 rwxp 00000000 00:00 0 
+7fcf34cc4000-7fcf34d49000 rwxp 00000000 00:00 0 
+7fcf34d49000-7fcf34fff000 rwxp 00000000 00:00 0 
+7fcf34fff000-7fcf35270000 rwxp 00000000 00:00 0 
+7fcf35270000-7fcf39529000 rwxp 00000000 00:00 0 
+7fcf39529000-7fcf3c000000 ---p 00000000 00:00 0 
+7fcf3c000000-7fcf3c003000 r-xs 0000c000 08:05 1723085                    /usr/local/share/applications/frascati/lib/easycommons-util-2.0-alpha-1.jar
+7fcf3c003000-7fcf3c02b000 rwxp 00000000 00:00 0 
+7fcf3c02b000-7fcf3c02c000 ---p 00000000 00:00 0 
+7fcf3c02c000-7fcf3c145000 rwxp 00000000 00:00 0 
+7fcf3c145000-7fcf3c155000 rwxp 00000000 00:00 0 
+7fcf3c155000-7fcf3c163000 r-xp 00000000 08:05 2066123                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libzip.so
+7fcf3c163000-7fcf3c265000 ---p 0000e000 08:05 2066123                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libzip.so
+7fcf3c265000-7fcf3c268000 rwxp 00010000 08:05 2066123                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libzip.so
+7fcf3c268000-7fcf3c269000 rwxp 00000000 00:00 0 
+7fcf3c269000-7fcf3c275000 r-xp 00000000 08:05 1475263                    /usr/lib64/libnss_files-2.17.so
+7fcf3c275000-7fcf3c474000 ---p 0000c000 08:05 1475263                    /usr/lib64/libnss_files-2.17.so
+7fcf3c474000-7fcf3c475000 r-xp 0000b000 08:05 1475263                    /usr/lib64/libnss_files-2.17.so
+7fcf3c475000-7fcf3c476000 rwxp 0000c000 08:05 1475263                    /usr/lib64/libnss_files-2.17.so
+7fcf3c476000-7fcf3c47c000 rwxp 00000000 00:00 0 
+7fcf3c47c000-7fcf3c483000 r-xp 00000000 08:05 2066127                    /usr/java/jdk1.6.0_23/jre/lib/amd64/native_threads/libhpi.so
+7fcf3c483000-7fcf3c584000 ---p 00007000 08:05 2066127                    /usr/java/jdk1.6.0_23/jre/lib/amd64/native_threads/libhpi.so
+7fcf3c584000-7fcf3c586000 rwxp 00008000 08:05 2066127                    /usr/java/jdk1.6.0_23/jre/lib/amd64/native_threads/libhpi.so
+7fcf3c586000-7fcf3c587000 rwxp 00000000 00:00 0 
+7fcf3c587000-7fcf3c59e000 r-xp 00000000 08:05 1475255                    /usr/lib64/libnsl-2.17.so
+7fcf3c59e000-7fcf3c79d000 ---p 00017000 08:05 1475255                    /usr/lib64/libnsl-2.17.so
+7fcf3c79d000-7fcf3c79e000 r-xp 00016000 08:05 1475255                    /usr/lib64/libnsl-2.17.so
+7fcf3c79e000-7fcf3c79f000 rwxp 00017000 08:05 1475255                    /usr/lib64/libnsl-2.17.so
+7fcf3c79f000-7fcf3c7a1000 rwxp 00000000 00:00 0 
+7fcf3c7a1000-7fcf3c7ca000 r-xp 00000000 08:05 2066101                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libjava.so
+7fcf3c7ca000-7fcf3c8c9000 ---p 00029000 08:05 2066101                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libjava.so
+7fcf3c8c9000-7fcf3c8d0000 rwxp 00028000 08:05 2066101                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libjava.so
+7fcf3c8d0000-7fcf3c8dd000 r-xp 00000000 08:05 2066122                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libverify.so
+7fcf3c8dd000-7fcf3c9dc000 ---p 0000d000 08:05 2066122                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libverify.so
+7fcf3c9dc000-7fcf3c9df000 rwxp 0000c000 08:05 2066122                    /usr/java/jdk1.6.0_23/jre/lib/amd64/libverify.so
+7fcf3c9df000-7fcf3c9e6000 r-xp 00000000 08:05 1475275                    /usr/lib64/librt-2.17.so
+7fcf3c9e6000-7fcf3cbe5000 ---p 00007000 08:05 1475275                    /usr/lib64/librt-2.17.so
+7fcf3cbe5000-7fcf3cbe6000 r-xp 00006000 08:05 1475275                    /usr/lib64/librt-2.17.so
+7fcf3cbe6000-7fcf3cbe7000 rwxp 00007000 08:05 1475275                    /usr/lib64/librt-2.17.so
+7fcf3cbe7000-7fcf3cbeb000 ---p 00000000 00:00 0 
+7fcf3cbeb000-7fcf3cce8000 rwxp 00000000 00:00 0 
+7fcf3cce8000-7fcf3cde9000 r-xp 00000000 08:05 1475253                    /usr/lib64/libm-2.17.so
+7fcf3cde9000-7fcf3cfe8000 ---p 00101000 08:05 1475253                    /usr/lib64/libm-2.17.so
+7fcf3cfe8000-7fcf3cfe9000 r-xp 00100000 08:05 1475253                    /usr/lib64/libm-2.17.so
+7fcf3cfe9000-7fcf3cfea000 rwxp 00101000 08:05 1475253                    /usr/lib64/libm-2.17.so
+7fcf3cfea000-7fcf3d800000 r-xp 00000000 08:05 2066131                    /usr/java/jdk1.6.0_23/jre/lib/amd64/server/libjvm.so
+7fcf3d800000-7fcf3d8ff000 ---p 00816000 08:05 2066131                    /usr/java/jdk1.6.0_23/jre/lib/amd64/server/libjvm.so
+7fcf3d8ff000-7fcf3da93000 rwxp 00815000 08:05 2066131                    /usr/java/jdk1.6.0_23/jre/lib/amd64/server/libjvm.so
+7fcf3da93000-7fcf3dacc000 rwxp 00000000 00:00 0 
+7fcf3dacc000-7fcf3dc8f000 r-xp 00000000 08:05 1475245                    /usr/lib64/libc-2.17.so
+7fcf3dc8f000-7fcf3de8e000 ---p 001c3000 08:05 1475245                    /usr/lib64/libc-2.17.so
+7fcf3de8e000-7fcf3de92000 r-xp 001c2000 08:05 1475245                    /usr/lib64/libc-2.17.so
+7fcf3de92000-7fcf3de94000 rwxp 001c6000 08:05 1475245                    /usr/lib64/libc-2.17.so
+7fcf3de94000-7fcf3de99000 rwxp 00000000 00:00 0 
+7fcf3de99000-7fcf3de9b000 r-xp 00000000 08:05 1475251                    /usr/lib64/libdl-2.17.so
+7fcf3de9b000-7fcf3e09b000 ---p 00002000 08:05 1475251                    /usr/lib64/libdl-2.17.so
+7fcf3e09b000-7fcf3e09c000 r-xp 00002000 08:05 1475251                    /usr/lib64/libdl-2.17.so
+7fcf3e09c000-7fcf3e09d000 rwxp 00003000 08:05 1475251                    /usr/lib64/libdl-2.17.so
+7fcf3e09d000-7fcf3e0b4000 r-xp 00000000 08:05 1475271                    /usr/lib64/libpthread-2.17.so
+7fcf3e0b4000-7fcf3e2b3000 ---p 00017000 08:05 1475271                    /usr/lib64/libpthread-2.17.so
+7fcf3e2b3000-7fcf3e2b4000 r-xp 00016000 08:05 1475271                    /usr/lib64/libpthread-2.17.so
+7fcf3e2b4000-7fcf3e2b5000 rwxp 00017000 08:05 1475271                    /usr/lib64/libpthread-2.17.so
+7fcf3e2b5000-7fcf3e2b9000 rwxp 00000000 00:00 0 
+7fcf3e2b9000-7fcf3e2db000 r-xp 00000000 08:05 1475238                    /usr/lib64/ld-2.17.so
+7fcf3e2db000-7fcf3e2dd000 r-xs 0000e000 08:05 1723092                    /usr/local/share/applications/frascati/lib/activation-1.1.jar
+7fcf3e2dd000-7fcf3e2df000 r-xs 00004000 08:05 1722956                    /usr/local/share/applications/frascati/lib/stax-api-1.0-2.jar
+7fcf3e2df000-7fcf3e2e4000 r-xs 0000c000 08:05 1722913                    /usr/local/share/applications/frascati/lib/easyviper.core.api-1.4-alpha-1.jar
+7fcf3e2e4000-7fcf3e2e8000 r-xs 0002a000 08:05 1722895                    /usr/local/share/applications/frascati/lib/common-2.4.0.jar
+7fcf3e2e8000-7fcf3e2ec000 r-xs 0002d000 08:05 1722966                    /usr/local/share/applications/frascati/lib/easycommons-sca-impl-1.0-alpha-1.jar
+7fcf3e2ec000-7fcf3e2f6000 rwxp 00000000 00:00 0 
+7fcf3e2f6000-7fcf3e3ac000 rwxp 00000000 00:00 0 
+7fcf3e3ac000-7fcf3e3af000 rwxp 00000000 00:00 0 
+7fcf3e3af000-7fcf3e3b6000 r-xp 00000000 08:05 2066084                    /usr/java/jdk1.6.0_23/jre/lib/amd64/jli/libjli.so
+7fcf3e3b6000-7fcf3e4b7000 ---p 00007000 08:05 2066084                    /usr/java/jdk1.6.0_23/jre/lib/amd64/jli/libjli.so
+7fcf3e4b7000-7fcf3e4b9000 rwxp 00008000 08:05 2066084                    /usr/java/jdk1.6.0_23/jre/lib/amd64/jli/libjli.so
+7fcf3e4b9000-7fcf3e4ba000 rwxp 00000000 00:00 0 
+7fcf3e4ba000-7fcf3e4bb000 r-xs 00003000 08:05 1723087                    /usr/local/share/applications/frascati/lib/uuid-3.2.jar
+7fcf3e4bb000-7fcf3e4bd000 r-xs 00003000 08:05 1723073                    /usr/local/share/applications/frascati/lib/runtime-0.4.1.5.jar
+7fcf3e4bd000-7fcf3e4c8000 r-xs 0007d000 08:05 1722859                    /usr/local/share/applications/frascati/lib/spring-beans-3.0.4.RELEASE.jar
+7fcf3e4c8000-7fcf3e4ca000 r-xs 00004000 08:05 1722986                    /usr/local/share/applications/frascati/lib/asm-tree-3.1.jar
+7fcf3e4ca000-7fcf3e4cc000 r-xs 00003000 08:05 1722975                    /usr/local/share/applications/frascati/lib/jndi-shared-5.5.0.jar
+7fcf3e4cc000-7fcf3e4ce000 r-xs 00002000 08:05 1723096                    /usr/local/share/applications/frascati/lib/frascati-implementation-spring-1.4.jar
+7fcf3e4ce000-7fcf3e4cf000 r-xs 00001000 08:05 1722925                    /usr/local/share/applications/frascati/lib/frascati-runtime-1.4.jar
+7fcf3e4cf000-7fcf3e4d7000 rwxs 00000000 08:12 10076162                   /tmp/hsperfdata_swarch/15986
+7fcf3e4d7000-7fcf3e4d8000 rwxp 00000000 00:00 0 
+7fcf3e4d8000-7fcf3e4d9000 ---p 00000000 00:00 0 
+7fcf3e4d9000-7fcf3e4da000 rwxp 00000000 00:00 0 
+7fcf3e4da000-7fcf3e4db000 r-xp 00021000 08:05 1475238                    /usr/lib64/ld-2.17.so
+7fcf3e4db000-7fcf3e4dc000 rwxp 00022000 08:05 1475238                    /usr/lib64/ld-2.17.so
+7fcf3e4dc000-7fcf3e4dd000 rwxp 00000000 00:00 0 
+7ffcd9e3d000-7ffcd9e5f000 rwxp 00000000 00:00 0                          [stack]
+7ffcd9ef1000-7ffcd9ef3000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Djava.security.policy=/usr/local/share/applications/frascati/conf/java.policy -Djava.util.logging.config.file=/usr/local/share/applications/frascati/conf/logging.properties -Dlog4j.configuration=logging.properties 
+java_command: org.ow2.frascati.Launcher org.ow2.frascati.factory.FactoryCommandLine -lib /usr/local/share/applications/frascati/lib bubblesortserv -libpath BubbleSortServ.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/java/jdk1.6.0_23
+PATH=/usr/java/jdk1.6.0_23/bin:/opt/android-studio/bin:/opt/pycharm-community-2018.1.4//bin:/opt/apache-jmeter-4.0//bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/share/applications/frascati/bin:/home/swarch/.composer/vendor/bin:/usr/java/jdk1.8.0_171-amd64/jre:/etc/hadoop/conf/:/home/swarch/.local/bin:/home/swarch/bin
+USERNAME=swarch
+LD_LIBRARY_PATH=/usr/java/jdk1.6.0_23/jre/lib/amd64/server:/usr/java/jdk1.6.0_23/jre/lib/amd64:/usr/java/jdk1.6.0_23/jre/../lib/amd64
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x76a860], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x76a860], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x621870], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x621870], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x621870], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x621870], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x624450], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x624050], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x624050], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x624050], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x624050], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:CentOS Linux release 7.5.1804 (Core) 
+
+uname:Linux 3.10.0-862.11.6.el7.x86_64 #1 SMP Tue Aug 14 21:49:04 UTC 2018 x86_64
+libc:glibc 2.17 NPTL 2.17 
+rlimit: STACK 8192k, CORE 0k, NPROC 4096, NOFILE 4096, AS infinity
+load average:2.03 2.04 1.89
+
+/proc/meminfo:
+MemTotal:       20309440 kB
+MemFree:        14561832 kB
+MemAvailable:   16923124 kB
+Buffers:          446696 kB
+Cached:          2262640 kB
+SwapCached:            0 kB
+Active:          3545136 kB
+Inactive:        1567648 kB
+Active(anon):    2405056 kB
+Inactive(anon):   299972 kB
+Active(file):    1140080 kB
+Inactive(file):  1267676 kB
+Unevictable:          16 kB
+Mlocked:              16 kB
+SwapTotal:      33646588 kB
+SwapFree:       33646588 kB
+Dirty:               108 kB
+Writeback:             0 kB
+AnonPages:       2403440 kB
+Mapped:           299680 kB
+Shmem:            301604 kB
+Slab:             358252 kB
+SReclaimable:     305904 kB
+SUnreclaim:        52348 kB
+KernelStack:       11888 kB
+PageTables:        54300 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    43801308 kB
+Committed_AS:    8070384 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      401840 kB
+VmallocChunk:   34358945788 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:   1482752 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      191424 kB
+DirectMap2M:    20697088 kB
+
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+Memory: 4k page, physical 20309440k(14561832k free), swap 33646588k(33646588k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (19.0-b09) for linux-amd64 JRE (1.6.0_23-b05), built on Nov 12 2010 14:12:21 by "java_re" with gcc 3.2.2 (SuSE Linux)
+
+time: Fri Oct 12 13:55:32 2018
+elapsed time: 2586 seconds
+
