@@ -11,7 +11,7 @@
       <interface.java interface="co.edu.icesi.arqui.interfaces.DistSort"/>
     </service>
  
-    <implementation.java class="co.edu.icesi.arqui.implementation.ShellSort" />
+    <implementation.java class="co.edu.icesi.arqui.implementation.Sorter" />
  
   </component>
 
