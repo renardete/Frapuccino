@@ -53,7 +53,7 @@ public class ClienteSort implements Runnable {
 			// Incluye todas las mayúsculas, minúsculas, y los carácteres [ \ ] _ ` ^
 			int leftLimit = 65; // ASCII letra A
 			int rightLimit = 122; // ASCII lera z
-			int targetStringLength = 60; // La longitud de las palabras va a ser 60
+			int targetStringLength = 1; // La longitud de las palabras va a ser 60
 
 			int[] numeros = { 1, 2, 3, 4, 5, 7, 8, 9, 0 };
 
@@ -105,7 +105,8 @@ public class ClienteSort implements Runnable {
 			
 			for (long tam = 200000; tam <= 1000000; tam += 200000) {
 				BufferedWriter outFile = new BufferedWriter(new FileWriter(resultFile, true));			
-				String[] arr = readFile("Datos/datos_"+tam+".txt");
+				//String[] arr = readFile("Datos/datos_"+tam+".txt");
+				String[] arr = ["b","x","a","c","y"]
 				System.out.println("Procesando arreglo: "+arr.length);
 				
 				long t1 = System.currentTimeMillis();
