@@ -7,14 +7,16 @@ import co.edu.icesi.arqui.interfaces.DistSort;
 
 public class Sorter implements DistSort {
 
-	public ShellSort() {
+	public Sorter() {
 		System.out.println("Sorter Server Created!");
 	}
 
 	public final String[] sort(final String[] arr) {
 		int l = 0;
-		int r = arr.length;
+		int r = arr.length - 1;
 		mergeSort(arr, l, r);
+		
+		return arr;
 	}
 
 	private void mergeSort(String[] arr, int l, int r) {
@@ -23,8 +25,8 @@ public class Sorter implements DistSort {
 			int m = (l + r) / 2;
 
 			// Sort first and second halves
-			sort(arr, l, m);
-			sort(arr, m + 1, r);
+			mergeSort(arr, l, m);
+			mergeSort(arr, m + 1, r);
 
 			// Merge the sorted halves
 			merge(arr, l, m, r);

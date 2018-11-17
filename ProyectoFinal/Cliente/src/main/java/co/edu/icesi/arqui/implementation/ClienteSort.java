@@ -104,9 +104,9 @@ public class ClienteSort implements Runnable {
 		try {
 			
 			for (long tam = 200000; tam <= 1000000; tam += 200000) {
-				BufferedWriter outFile = new BufferedWriter(new FileWriter(resultFile, true));			
+				//BufferedWriter outFile = new BufferedWriter(new FileWriter(resultFile, true));			
 				//String[] arr = readFile("Datos/datos_"+tam+".txt");
-				String[] arr = ["b","x","a","c","y"]
+				String[] arr = {"b","x","a","c","y"};
 				System.out.println("Procesando arreglo: "+arr.length);
 				
 				long t1 = System.currentTimeMillis();
@@ -115,10 +115,12 @@ public class ClienteSort implements Runnable {
 				
 				long t2 = System.currentTimeMillis();
 				
+				for(int u = 0; u < orderArr.length;u++){System.out.print(orderArr[u]);}
+				
 				//Guarda el tiempo de ordenamiento en el archivo.
 				System.out.println("Ha tardado " + (t2 - t1) + "milisegundos");
-				outFile.append(tam+","+(t2 - t1)+"\n");				
-				outFile.close();		
+				//outFile.append(tam+","+(t2 - t1)+"\n");				
+				//outFile.close();		
 			}			
 			
 		} catch (Exception e) {
