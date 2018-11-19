@@ -8,9 +8,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public class Merger implements MergerSort {
-
+public class Merger implements DistSort {
+	
+	@Reference(name="sortDer")
 	private DistSort sortDer;
+
+	@Reference(name="sortIzq")
 	private DistSort sortIzq;
 
 	public Merger() {
