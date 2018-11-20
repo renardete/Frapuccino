@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<composite xmlns="http://www.osoa.org/xmlns/sca/1.0"
+  xmlns:frascati="http://frascati.ow2.org/xmlns/sca/1.1"
+  targetNamespace="http://frascati.ow2.org/helloworld-rmi"
+  name="Merger">
+
+   
+
+  <component name="merger">
+
+  <service name="s">
+      <frascati:binding.rmi host="localhost" 	serviceName="rmiservice" port="2552"/>
+      <interface.java 	interface="co.edu.icesi.arqui.interfaces.Merge2"/>
+    </service>
+
+
+<reference name="sortIzq">      	  
+     	 <frascati:binding.rmi host="192.168.161.24"  serviceName="rmiservice" port="2551"/>
+    </reference>
+
+    <reference name="sortDer">      	  
+      <frascati:binding.rmi host="localhost" 	serviceName="rmiservice" port="2551"/>
+    </reference>
+	
+	
+	 
+
+    <implementation.java class="co.edu.icesi.arqui.implementation.Merger" />
+
+  </component>
+
+</composite>
